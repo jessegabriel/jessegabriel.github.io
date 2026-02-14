@@ -1,0 +1,198 @@
+:root {
+    --primary: #1a365d;
+    --accent: #3182ce;
+    --text-main: #2d3748;
+    --text-light: #4a5568; /* Slightly darker for better readability */
+    --bg-light: #f7fafc;
+    --white: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.4; /* Balanced line height */
+    color: var(--text-main);
+    background-color: #333;
+    padding: 0px 20px;
+	font-size: 0.8rem;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: var(--white);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Header */
+header {
+    background: var(--primary);
+    color: var(--white);
+    padding: 40px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2rem;
+    letter-spacing: 2px;
+    font-weight: 300;
+    margin-bottom: 5px;
+}
+
+.accent {
+    font-weight: 700;
+    color: var(--accent);
+}
+
+.tagline {
+    font-size: 0.8rem;
+    opacity: 0.9;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.contact-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    font-size: 0.8rem;
+}
+
+.contact-grid a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--accent); }
+
+/* Main Layout */
+.main-grid {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+}
+
+/* Sidebar */
+.sidebar {
+    background: var(--bg-light);
+    padding: 25px 20px;
+    border-right: 1px solid #edf2f7;
+}
+
+.sidebar h3 {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: var(--primary);
+    margin-bottom: 12px;
+    border-bottom: 2px solid var(--accent);
+    display: inline-block;
+}
+
+.skill-group { margin-bottom: 5px; margin-top: 0px;}
+.skill-group h4 { font-size: 0.8rem; color: var(--text-light); text-transform: uppercase; margin-bottom: 2px; }
+.skill-group p { font-size: 0.8rem; margin-top: -3px; }
+
+.skills-list { list-style: none; font-size: 0.8rem; font-weight: 600; margin-top: -10px; margin-bottom: 10px;}
+.skills-list li { 
+    margin-bottom: 1px; /* Tight vertical spacing */
+    padding-left: 10px;
+    border-left: 2px solid #cbd5e0;
+
+}
+
+.edu-item { margin-bottom: 6px; font-size: 0.8rem; }
+.year { display: block; font-weight: 700; color: var(--accent); }
+
+/* Content Areas */
+.content {
+    padding: 30px 20px;
+}
+
+.section-title {
+    font-size: 0.8rem;
+    color: var(--primary);
+    margin-bottom: 12px;
+    position: relative;
+    padding-bottom: 4px;
+    margin-top: -5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 40px;
+    height: 3px;
+    background: var(--accent);
+}
+
+/* Job & Experience Spacing */
+.job { margin-bottom: 8px; }
+.job-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: -1px;
+
+.job-header h3 { font-size: 0.8rem; color: #1a202c; }
+.company { font-weight: 600; color: var(--accent); font-size: 0.8rem; }
+.date { font-size: 0.8rem; color: var(--text-light); font-weight: 500; }
+
+/* The Tighter Lists */
+ul { padding-left: 15px; margin-top: 5px; }
+li { 
+    margin-bottom: 0px; /* Extremely tight list spacing */
+    font-size: 0.8rem; 
+    color: var(--text-main);
+}
+
+.pub { 
+    font-size: 0.8rem; 
+    margin-bottom: 10px; 
+    border-left: 3px solid var(--accent); 
+    padding-left: 12px;
+    font-style: italic;
+}
+
+/* ... All your existing CSS above ... */
+
+/* Add this to the bottom for the project links */
+.project-link {
+    font-size: 0.7rem;
+    color: var(--accent);
+    text-decoration: none;
+    border: 1px solid var(--accent);
+    padding: 0px 5px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.project-link:hover {
+    background: var(--accent);
+    color: white;
+}
+
+.project-link i {
+    margin-right: 4px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .main-grid { grid-template-columns: 1fr; }
+    header { padding: 30px 20px; }
+    .sidebar { border-right: none; border-bottom: 1px solid #edf2f7; }
+    .content { padding: 25px; }
+}
+
+/* Print Optimization */
+@media print {
+    body { padding: 0; background: white; }
+    .container { box-shadow: none; max-width: 100%; }
+    .sidebar { background: white; }
+}
