@@ -134,19 +134,28 @@ h1 {
 
 /* Job & Experience Spacing */
 .job { margin-bottom: 8px; }
+
 .job-header {
     display: flex;
     justify-content: space-between;
-    margin-bottom: -1px;
+    align-items: flex-start; /* Keeps date aligned to top */
+    margin-bottom: 2px;
+}
 
-.job-header h3 { font-size: 0.8rem; color: #1a202c; }
+/* FIX: Added missing closing brace for .job-header and fixed h4 selector */
+.job-header h4 { 
+    font-size: 0.9rem; 
+    color: #1a202c; 
+    margin: 0;
+}
+
 .company { font-weight: 600; color: var(--accent); font-size: 0.8rem; }
-.date { font-size: 0.8rem; color: var(--text-light); font-weight: 500; }
+.date { font-size: 0.75rem; color: var(--text-light); font-weight: 500; white-space: nowrap; margin-left: 10px; }
 
 /* The Tighter Lists */
 ul { padding-left: 15px; margin-top: 5px; }
 li { 
-    margin-bottom: 0px; /* Extremely tight list spacing */
+    margin-bottom: 2px; 
     font-size: 0.8rem; 
     color: var(--text-main);
 }
@@ -155,39 +164,59 @@ li {
     font-size: 0.8rem; 
     margin-bottom: 10px; 
     border-left: 3px solid var(--accent); 
-    padding-left: 12px;
-    font-style: italic;
+    padding-left: 12px;    
 }
 
-/* ... All your existing CSS above ... */
-
-/* Add this to the bottom for the project links */
 .project-link {
     font-size: 0.7rem;
     color: var(--accent);
     text-decoration: none;
     border: 1px solid var(--accent);
-    padding: 0px 5px;
+    padding: 2px 8px;
     border-radius: 4px;
     transition: all 0.3s ease;
     font-weight: 600;
+    display: inline-block;
+    margin-top: 5px;
 }
 
-.project-link:hover {
-    background: var(--accent);
-    color: white;
-}
-
-.project-link i {
-    margin-right: 4px;
-}
-
-/* Responsive */
+/* Responsive Fixes */
 @media (max-width: 768px) {
-    .main-grid { grid-template-columns: 1fr; }
-    header { padding: 30px 20px; }
-    .sidebar { border-right: none; border-bottom: 1px solid #edf2f7; }
-    .content { padding: 25px; }
+    body {
+        padding: 0; /* Remove padding on mobile to save space */
+    }
+    
+    .container {
+        border-radius: 0;
+    }
+
+    .main-grid { 
+        display: block; /* Changes from Grid to Stacked */
+    }
+
+    .sidebar { 
+        border-right: none; 
+        border-bottom: 1px solid #edf2f7; 
+        padding: 20px;
+    }
+
+    .header-content h1 {
+        font-size: 1.8rem;
+    }
+
+    .contact-grid {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .job-header {
+        flex-direction: column; /* Stacks Job Title and Date on mobile */
+    }
+
+    .date {
+        margin-left: 0;
+        margin-top: 4px;
+    }
 }
 
 /* Print Optimization */
